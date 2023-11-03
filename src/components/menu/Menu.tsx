@@ -1,21 +1,21 @@
-import React from "react";
+import React, { useState } from "react";
 import styled from "styled-components";
 import SearchEngine from "./SearchEngine";
 import SideMenu from "./SideMenu";
 
 const MenuContainer = styled.div`
-  position: fixed;
-  height: 100%;
+  height: 100vh;
   display: flex;
   flex-direction: row;
-  align-items: center;
+  z-index: 999;
 `;
 
 const Menu = () => {
+  let [isOpen, setIsOpen] = useState<boolean>(true);
   return (
     <MenuContainer>
-      <SideMenu />
-      <SearchEngine />
+      <SideMenu isOpen={isOpen} setIsOpen={setIsOpen} />
+      <SearchEngine isOpen={isOpen} setIsOpen={setIsOpen} />
     </MenuContainer>
   );
 };

@@ -1,46 +1,64 @@
 import React from "react";
 import styled from "styled-components";
-import { BiHomeAlt } from "react-icons/bi";
-import { RiAccountCircleLine } from "react-icons/ri";
-import { FiAlertTriangle } from "react-icons/fi";
-import { AiOutlineFolderOpen, AiOutlineMessage } from "react-icons/ai";
+
+import { menuData } from "src/data/data";
+import Icon from "../Icon";
+import { AiOutlineArrowLeft, AiOutlineArrowRight } from "react-icons/ai";
 
 const SideMenuContainer = styled.div`
+  position: relative;
   width: 80px;
   height: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
   padding: 50px 0;
-  border-right: 2px solid #606060;
+  border-right: 1px solid #585858;
   background-color: #333333;
 `;
 
 const MenuItem = styled.div`
-  color: #757575;
-  text-decoration: none;
   margin-bottom: 40px;
-  font-size: 3rem;
 `;
 
-const SideMenu = () => {
+const CloseButton = styled.div`
+  position: absolute;
+  right: -25px;
+  bottom: 25px;
+  width: 50px;
+  height: 50px;
+  background-color: #333333;
+  border: 1px solid #585858;
+  border-radius: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+`;
+interface OpenType {
+  isOpen: boolean;
+  setIsOpen: React.Dispatch<React.SetStateAction<boolean>>;
+}
+const SideMenu = ({ isOpen, setIsOpen }: OpenType) => {
   return (
     <SideMenuContainer>
-      <MenuItem>
-        <BiHomeAlt />
-      </MenuItem>
-      <MenuItem>
-        <RiAccountCircleLine />
-      </MenuItem>
-      <MenuItem>
-        <AiOutlineFolderOpen />
-      </MenuItem>
-      <MenuItem>
-        <AiOutlineMessage />
-      </MenuItem>
-      <MenuItem>
-        <FiAlertTriangle />
-      </MenuItem>
+      <CloseButton
+        onClick={() => {
+          setIsOpen(!isOpen);
+        }}
+      >
+        {isOpen ? (
+          <Icon icon={AiOutlineArrowLeft} size={30} color="#585858" margin="0" />
+        ) : (
+          <Icon icon={AiOutlineArrowRight} size={30} color="#585858" margin="0" />
+        )}
+      </CloseButton>
+      {menuData.map((item, i) => {
+        return (
+          <MenuItem key={i}>
+            <Icon icon={item.icon} size={30} color={item.color} margin="0" />
+          </MenuItem>
+        );
+      })}
     </SideMenuContainer>
   );
 };

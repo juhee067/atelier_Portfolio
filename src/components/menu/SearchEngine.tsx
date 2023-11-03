@@ -2,11 +2,11 @@ import React from "react";
 import styled from "styled-components";
 import { BsBookmark } from "react-icons/bs";
 import { IoIosArrowDown } from "react-icons/io";
-import { FaReact } from "react-icons/fa";
-import { TbBrandTypescript } from "react-icons/tb";
 import Icon from "../Icon";
+import { projectData } from "src/data/data";
 
-const SearchEngineContainer = styled.div`
+const SearchEngineContainer = styled.div<SearchEngineContainerProps>`
+  display: ${(props) => (props.isOpen ? "block" : "none")};
   width: 340px;
   height: 100%;
   padding: 50px 30px;
@@ -49,9 +49,18 @@ const Project = styled.div`
   font-size: 1.8rem;
 `;
 
-const SearchEngine = () => {
+interface SearchEngineContainerProps {
+  isOpen: boolean;
+}
+
+interface OpenType {
+  isOpen: boolean;
+  setIsOpen: React.Dispatch<React.SetStateAction<boolean>>;
+}
+
+const SearchEngine = ({ isOpen, setIsOpen }: OpenType) => {
   return (
-    <SearchEngineContainer>
+    <SearchEngineContainer isOpen={isOpen}>
       <Title>
         <span>탐색기</span>
         <BsBookmark />
@@ -63,28 +72,16 @@ const SearchEngine = () => {
         </FrontEnd>
         <ProjectBox>
           <ProjectTitle>
-            <Icon icon={IoIosArrowDown} size={24} color="#fff" margin="0 10px 0 0" />
+            <Icon icon={IoIosArrowDown} size={14} color="#fff" margin="0 10px 0 0" />
             PROJECT
           </ProjectTitle>
           <ProjectContent>
-            <Project>
-              <Icon icon={FaReact} size={14} color="#61DBFB" margin="0 10px 0 0" />
-              독서 버킷리스트
-            </Project>
-            <Project>
-              <Icon icon={FaReact} size={14} color="#61DBFB" margin="0 10px 0 0" />
-              와인 공유 커뮤니티
-            </Project>
-            <Project>
-              <Icon icon={FaReact} size={14} color="#61DBFB" margin="0 10px 0 0" />
-              <Icon icon={TbBrandTypescript} size={14} color="#3178c6" margin="0 10px 0 0" />
-              메신저 대화 분석 시각화
-            </Project>
-            <Project>
-              <Icon icon={FaReact} size={14} color="#61DBFB" margin="0 10px 0 0" />
-              <Icon icon={TbBrandTypescript} size={14} color="#3178c6" margin="0 10px 0 0" />
-              메시지 전달형 자살예방
-            </Project>
+            {projectData.map((item, index) => (
+              <Project key={index}>
+                <Icon icon={item.icon} size={14} color={item.color} margin="0 10px 0 0" />
+                {item.text}
+              </Project>
+            ))}
           </ProjectContent>
         </ProjectBox>
       </ContentBox>
