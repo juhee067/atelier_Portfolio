@@ -10,8 +10,8 @@ const SearchEngineContainer = styled.div<SearchEngineContainerProps>`
   width: 340px;
   height: 100%;
   padding: 50px 30px;
-  background-color: #2b2b2b;
-  color: #fff;
+  background-color: ${({ theme }) => theme.color.menuBg};
+  color: ${({ theme }) => theme.color.mainWhite};
 `;
 
 const Title = styled.div`
@@ -21,7 +21,7 @@ const Title = styled.div`
 `;
 
 const ContentBox = styled.div`
-  color: #fff;
+  color: ${({ theme }) => theme.color.mainWhite};
   letter-spacing: 0.125rem;
 `;
 

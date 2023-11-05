@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import styled, { keyframes } from "styled-components";
 
 const bounceAnimation = keyframes`
@@ -15,7 +15,7 @@ const bounceAnimation = keyframes`
 
 const ScrollIndicatorContainer = styled.div`
   position: absolute;
-  bottom: 80px;
+  bottom: 120px;
   left: 50%;
   transform: translateX(-50%);
   display: flex;
@@ -30,13 +30,10 @@ const Arrow = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
-  color: #000000;
+  color: ${({ theme }) => theme.color.mainBlack};
   font-size: 24px;
   cursor: pointer;
   animation: ${bounceAnimation} 2s linear infinite;
-  &:hover {
-    background-color: #555;
-  }
 `;
 
 const ScrollDownIndicator = () => {

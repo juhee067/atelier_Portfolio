@@ -9,16 +9,16 @@ const FileContainer = styled.div`
   width: 200px;
   height: 100%;
   top: 0;
-  background-color: #3a3a3a;
+  background-color: ${({ theme }) => theme.color.menuSubBg};
   font-size: 1.7rem;
-  border-right: 1px solid #585858;
+  border-right: 1px solid ${({ theme }) => theme.color.menuLine};
 `;
 
 const FileName = styled.div`
-  color: #fff;
+  color: ${({ theme }) => theme.color.mainWhite};
   font-style: italic;
   span {
-    color: #ff7700;
+    color: ${({ theme }) => theme.color.indexFile};
     font-weight: 900;
     margin-right: 10px;
   }

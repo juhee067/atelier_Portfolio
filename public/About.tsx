@@ -3,7 +3,12 @@ import { FlexColumnDiv, FlexRowDiv } from "src/module/styled/FlexDiv";
 import styled from "styled-components";
 import { BsFillArrowRightCircleFill } from "react-icons/bs";
 
-const AboutContainer = styled.div``;
+const AboutContainer = styled.div`
+  max-width: 900px;
+  width: 100%;
+  padding: 50px 0;
+  margin: 0 auto;
+`;
 
 const AboutMe = styled(FlexRowDiv)`
   padding: 70px 20px;
@@ -62,7 +67,7 @@ const MoreBtn = styled(FlexRowDiv)`
   padding: 10px 20px;
   margin-top: 20px;
   gap: 10px;
-  border: 1px solid ${({ theme }) => theme.color.mainBlack};
+  border: 1px solid ${({ theme }) => theme.color.pointBlue};
   border-radius: 20px;
 `;
 const Introduce = styled.div``;
@@ -76,9 +81,9 @@ const DesTitle = styled.div`
   font-weight: 500;
 `;
 const Des = styled.div`
-  font-weight: 300;
+  font-weight: 400;
   letter-spacing: 0.025rem;
-  color: ${({ theme }) => theme.color.gray};
+  color: #313131;
   p {
     margin-bottom: 10px;
   }

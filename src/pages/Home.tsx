@@ -4,7 +4,6 @@ import styled from "styled-components";
 
 const HomeContainer = styled.div`
   position: relative;
-  width: 100%;
   height: 100vh;
   padding: 200px 0;
 `;
@@ -18,7 +17,7 @@ const Var = styled.div`
   margin-bottom: 50px;
   font-size: 23px;
   font-weight: 300;
-  color: #969696;
+  color: ${({ theme }) => theme.color.gray};
 `;
 
 const TitleBox = styled.div`
@@ -50,7 +49,7 @@ const Title = styled.div`
 const TitleBase = styled.div`
   width: 100%;
   height: 60px;
-  background-color: #f1f1f1;
+  background-color: ${({ theme }) => theme.color.TitleBase};
   border-radius: 40px;
 `;
 
@@ -58,7 +57,7 @@ const Mean = styled.div`
   margin-bottom: 40px;
   font-family: "Outfit";
   text-align: right;
-  color: #bababa;
+  color: ${({ theme }) => theme.color.mean};
 `;
 
 const Dec = styled.div`

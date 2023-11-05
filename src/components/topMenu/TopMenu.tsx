@@ -6,7 +6,7 @@ const MenuContainer = styled.div`
   position: relative;
   width: 100vw;
   height: 50px;
-  background-color: #2b2b2b;
+  background-color: ${({ theme }) => theme.color.menuBg};
 `;
 
 const TopMenu = () => {

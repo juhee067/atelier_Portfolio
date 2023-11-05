@@ -2,7 +2,8 @@ import Menu from "./components/menu/Menu";
 import React from "react";
 import GlobalStyle from "./styles/GlobalStyles";
 import View from "./components/view/View";
-import styled from "styled-components";
+import styled, { ThemeProvider } from "styled-components";
+import theme from "./styles/Theme";
 
 const ContentBox = styled.div`
   display: flex;
@@ -10,13 +11,13 @@ const ContentBox = styled.div`
 
 function App() {
   return (
-    <>
+    <ThemeProvider theme={theme}>
       <GlobalStyle />
       <ContentBox>
         <Menu />
         <View />
       </ContentBox>
-    </>
+    </ThemeProvider>
   );
 }
 

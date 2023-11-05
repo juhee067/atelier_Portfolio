@@ -13,8 +13,8 @@ const SideMenuContainer = styled.div`
   flex-direction: column;
   align-items: center;
   padding: 50px 0;
-  border-right: 1px solid #585858;
-  background-color: #333333;
+  border-right: 1px solid ${({ theme }) => theme.color.menuLine};
+  background-color: ${({ theme }) => theme.color.menuSubBg};
 `;
 
 const MenuItem = styled.div`
@@ -27,8 +27,8 @@ const CloseButton = styled.div`
   bottom: 25px;
   width: 50px;
   height: 50px;
-  background-color: #333333;
-  border: 1px solid #585858;
+  background-color: ${({ theme }) => theme.color.menuLine};
+  border: 1px solid ${({ theme }) => theme.color.menuSubBg};
   border-radius: 30px;
   display: flex;
   justify-content: center;
@@ -47,9 +47,9 @@ const SideMenu = ({ isOpen, setIsOpen }: OpenType) => {
         }}
       >
         {isOpen ? (
-          <Icon icon={AiOutlineArrowLeft} size={30} color="#585858" margin="0" />
+          <Icon icon={AiOutlineArrowLeft} size={30} color="#888888" margin="0" />
         ) : (
-          <Icon icon={AiOutlineArrowRight} size={30} color="#585858" margin="0" />
+          <Icon icon={AiOutlineArrowRight} size={30} color="#888888" margin="0" />
         )}
       </CloseButton>
       {menuData.map((item, i) => {
