@@ -6,13 +6,16 @@ import Icon from "../Icon";
 import { projectData } from "src/data/data";
 
 const SearchEngineContainer = styled.div<SearchEngineContainerProps>`
-  display: ${(props) => (props.isOpen ? "block" : "none")};
+  position: absolute;
+  transform: translateX(${(props) => (props.isOpen ? 0 : "-150%")}); // 왼쪽에서 오른쪽으로 이동
   width: 340px;
   height: 100%;
+  margin-left: 80px;
   padding: 50px 30px;
-
   background-color: ${({ theme }) => theme.color.menuBg};
   color: ${({ theme }) => theme.color.mainWhite};
+  z-index: 990;
+  transition: transform 0.3s ease; // 0.3초 동안 부드럽게 나타나고 사라짐
 `;
 
 const Title = styled.div`

@@ -1,9 +1,10 @@
-import React from "react";
+import React, { useState } from "react";
 import styled from "styled-components";
 
 import { menuData } from "src/data/data";
 import Icon from "../Icon";
 import { AiOutlineArrowLeft, AiOutlineArrowRight } from "react-icons/ai";
+import theme from "src/styles/Theme";
 
 const SideMenuContainer = styled.div`
   position: relative;
@@ -16,10 +17,10 @@ const SideMenuContainer = styled.div`
   background-color: ${({ theme }) => theme.color.menuSubBg};
 `;
 
-const MenuItem = styled.div<isActiveType>`
+const MenuItem = styled.div<MenuItemProps>`
   padding: 0 24px;
   margin-bottom: 40px;
-  ${({ isActive, theme }) => (isActive ? `border-left: 2px solid ${theme.color.bottomLine};` : "")}
+  border-left: ${({ isActive, theme }) => (isActive ? `1px solid ${theme.color.mainWhite} ` : "none")};
 `;
 
 const CloseButton = styled.div`
@@ -34,6 +35,7 @@ const CloseButton = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
+  z-index: 999;
 `;
 
 interface OpenType {
@@ -45,7 +47,7 @@ interface OpenType {
   scrollToContact: () => void;
 }
 
-type isActiveType = {
+type MenuItemProps = {
   isActive: boolean;
 };
 
@@ -57,7 +59,24 @@ const SideMenu = ({
   scrollToProject,
   scrollToContact,
 }: OpenType) => {
-  const activeItemIndex = 0; // 활성화된 아이템의 index
+  const [countIndex, setCountIndex] = useState(0);
+
+  const handleOnClick = (idx: number) => {
+    setCountIndex(idx);
+    console.log(countIndex);
+  };
+
+  const handleMenuClick = (menu: string) => {
+    if (menu === "home") {
+      scrollToHome();
+    } else if (menu === "about") {
+      scrollToAbout();
+    } else if (menu === "project") {
+      scrollToProject();
+    } else if (menu === "contact") {
+      scrollToContact();
+    }
+  };
 
   return (
     <SideMenuContainer>
@@ -73,27 +92,20 @@ const SideMenu = ({
         )}
       </CloseButton>
       {menuData.map((item, i) => {
-        // 현재 아이템이 활성화된 아이템인지 확인하고, isActive 프로퍼티를 전달합니다.
-        const isActive = i === activeItemIndex;
+        const isActive = i === countIndex;
+        const iconColor = isActive ? theme.color.mainWhite : "#757575";
         return (
           <MenuItem key={i} isActive={isActive}>
             <Icon
               icon={item.icon}
               size={30}
-              color={item.color}
+              color={iconColor}
               margin="0"
               onClick={() => {
-                // 각 아이콘을 클릭할 때 해당 함수를 호출합니다.
-                if (item.menu === "home") {
-                  scrollToHome();
-                } else if (item.menu === "about") {
-                  scrollToAbout();
-                } else if (item.menu === "project") {
-                  scrollToProject();
-                } else if (item.menu === "contact") {
-                  scrollToContact();
-                }
+                handleMenuClick(item.menu);
+                handleOnClick(i);
               }}
+              data-menu={item.menu}
             />
           </MenuItem>
         );

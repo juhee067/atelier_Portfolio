@@ -8,7 +8,7 @@ const MenuContainer = styled.div`
   width: 100vw;
   height: 50px;
   background-color: ${({ theme }) => theme.color.menuBg};
-  z-index: 999;
+  z-index: 980;
 `;
 
 const TopMenu = () => {

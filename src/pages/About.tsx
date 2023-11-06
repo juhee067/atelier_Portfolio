@@ -2,6 +2,7 @@ import React, { forwardRef, useRef } from "react";
 import { FlexColumnDiv, FlexRowDiv } from "src/module/styled/FlexDiv";
 import styled from "styled-components";
 import { BsFillArrowRightCircleFill } from "react-icons/bs";
+import { Link } from "react-router-dom";
 
 const AboutContainer = styled.div``;
 
@@ -101,14 +102,24 @@ export const About = forwardRef<HTMLDivElement>((props, ref: any) => {
               <p>안녕하세요! 프론트엔드 개발자 최주희입니다.</p>
             </Content>
             <MoreBtn>
-              <span> 자기소개 더보기</span>
+              <Link to="https://www.notion.so/772ca0c9ecaa47b6977cc0d596f01298?pvs=4" target="_blank">
+                자기소개 더보기
+              </Link>
               <BsFillArrowRightCircleFill />
             </MoreBtn>
           </Intro>
           <Channel>
             <p>Channel</p>
-            <p>Blog. https://woody-j.tistory.com/</p>
-            <p>GitHub. https://github.com/juhee067</p>
+            <p>
+              <Link to="https://woody-j.tistory.com/" target="_blank">
+                Blog. https://woody-j.tistory.com
+              </Link>
+            </p>
+            <p>
+              <Link to="https://github.com/juhee067" target="_blank">
+                GitHub. https://github.com/juhee067
+              </Link>
+            </p>
           </Channel>
         </ContentBox>
       </AboutMe>

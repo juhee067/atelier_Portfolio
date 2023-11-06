@@ -12,22 +12,29 @@ const MenuContainer = styled.div`
   z-index: 999;
 `;
 
-const Menu = ({ scrollToHome, scrollToAbout, scrollToProject, scrollToContact }: any) => {
-  let [isOpen, setIsOpen] = useState<boolean>(true);
-
+const Menu = ({
+  scrollToHome,
+  scrollToAbout,
+  scrollToProject,
+  scrollToContact,
+  isOpen,
+  setIsOpen,
+}: any) => {
   return (
-    <MenuContainer>
-      <SideMenu
-        isOpen={isOpen}
-        setIsOpen={setIsOpen}
-        scrollToHome={scrollToHome}
-        scrollToAbout={scrollToAbout}
-        scrollToProject={scrollToProject}
-        scrollToContact={scrollToContact}
-      />
-      <SearchEngine isOpen={isOpen} setIsOpen={setIsOpen} />
-      <TopMenu />
-    </MenuContainer>
+    <>
+      <MenuContainer>
+        <SideMenu
+          isOpen={isOpen}
+          setIsOpen={setIsOpen}
+          scrollToHome={scrollToHome}
+          scrollToAbout={scrollToAbout}
+          scrollToProject={scrollToProject}
+          scrollToContact={scrollToContact}
+        />
+        <SearchEngine isOpen={isOpen} setIsOpen={setIsOpen} />
+        <TopMenu />
+      </MenuContainer>
+    </>
   );
 };
 export default Menu;

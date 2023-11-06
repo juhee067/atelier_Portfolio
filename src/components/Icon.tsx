@@ -1,4 +1,4 @@
-import React from "react";
+import React, { MouseEventHandler } from "react";
 import styled from "styled-components";
 import { IconType } from "react-icons";
 
@@ -8,13 +8,14 @@ interface IconProps {
   color?: string;
   margin?: string;
   padding?: string;
-  onClick?: () => void;
+  onClick?: MouseEventHandler<HTMLSpanElement> | undefined;
 }
 
 const StyledIcon = styled.span<{ color?: string; margin?: string; padding?: string }>`
   color: ${(props) => (props.color ? props.color : "inherit")};
   margin: ${(props) => (props.margin ? props.margin : "0")};
   padding: ${(props) => (props.padding ? props.padding : "0")};
+  cursor: pointer;
 `;
 
 const Icon: React.FC<IconProps> = ({ icon: IconComponent, size, color, margin, padding, onClick }) => {

@@ -1,5 +1,5 @@
 import Menu from "./components/menu/Menu";
-import React, { useRef } from "react";
+import React, { useRef, useState } from "react";
 import GlobalStyle from "./styles/GlobalStyles";
 import View from "./components/view/View";
 import styled, { ThemeProvider } from "styled-components";
@@ -12,6 +12,8 @@ const ContentBox = styled.div`
 `;
 
 function App() {
+  let [isOpen, setIsOpen] = useState<boolean>(false);
+
   const homeRef = useRef<HTMLDivElement>(null);
   const aboutRef = useRef<HTMLDivElement>(null);
   const projectRef = useRef<HTMLDivElement>(null);
@@ -24,6 +26,16 @@ function App() {
     }
   };
 
+  const DropBox = styled.div<{ isOpen: boolean }>`
+    display: ${(props) => (props.isOpen ? "block" : "none")};
+    position: fixed;
+    width: 100%;
+    height: 100vh;
+    background-color: ${({ theme }) => theme.color.mainWhite};
+    opacity: 0.9;
+    z-index: 970;
+  `;
+
   return (
     <ThemeProvider theme={theme}>
       <GlobalStyle />
@@ -33,7 +45,10 @@ function App() {
           scrollToAbout={() => scrollToComponent(aboutRef)}
           scrollToProject={() => scrollToComponent(projectRef)}
           scrollToContact={() => scrollToComponent(contactRef)}
+          isOpen={isOpen}
+          setIsOpen={setIsOpen}
         />
+        <DropBox isOpen={isOpen} />
         <View homeRef={homeRef} aboutRef={aboutRef} projectRef={projectRef} contactRef={contactRef} />
       </ContentBox>
       <Routes>
