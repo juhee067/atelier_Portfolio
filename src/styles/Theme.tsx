@@ -10,7 +10,7 @@ const color = {
   indexFile: "#ff7700",
   TitleBase: "#f1f1f1",
   mean: "#bababa",
-  paragraph: "#4c4c4c",
+  paragraph: "#9f9f9f",
 };
 const theme = {
   color,

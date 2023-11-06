@@ -1,4 +1,4 @@
-import React from "react";
+import React, { forwardRef } from "react";
 import { BsFillArrowRightCircleFill } from "react-icons/bs";
 import { FlexRowDiv } from "src/module/styled/FlexDiv";
 import styled from "styled-components";
@@ -53,9 +53,9 @@ const MoreBtn = styled(FlexRowDiv)`
   border-radius: 20px;
 `;
 
-export const Contact = () => {
+export const Contact = forwardRef<HTMLDivElement>((props, ref) => {
   return (
-    <AboutContainer>
+    <AboutContainer ref={ref}>
       <Title>CONTACT </Title>
       <SubTitle>오늘도 즐겁게 야근할 사람을 찾고 계신가요? </SubTitle>
       <Email> woodyj9988@gmail.com </Email>
@@ -73,4 +73,4 @@ export const Contact = () => {
       </MoreBtn>
     </AboutContainer>
   );
-};
+});

@@ -7,18 +7,19 @@ import { AiOutlineArrowLeft, AiOutlineArrowRight } from "react-icons/ai";
 
 const SideMenuContainer = styled.div`
   position: relative;
-  width: 80px;
+  padding: 50px 0;
   height: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 50px 0;
   border-right: 1px solid ${({ theme }) => theme.color.menuLine};
   background-color: ${({ theme }) => theme.color.menuSubBg};
 `;
 
-const MenuItem = styled.div`
+const MenuItem = styled.div<isActiveType>`
+  padding: 0 24px;
   margin-bottom: 40px;
+  ${({ isActive, theme }) => (isActive ? `border-left: 2px solid ${theme.color.bottomLine};` : "")}
 `;
 
 const CloseButton = styled.div`
@@ -34,11 +35,30 @@ const CloseButton = styled.div`
   justify-content: center;
   align-items: center;
 `;
+
 interface OpenType {
   isOpen: boolean;
   setIsOpen: React.Dispatch<React.SetStateAction<boolean>>;
+  scrollToHome: () => void;
+  scrollToAbout: () => void;
+  scrollToProject: () => void;
+  scrollToContact: () => void;
 }
-const SideMenu = ({ isOpen, setIsOpen }: OpenType) => {
+
+type isActiveType = {
+  isActive: boolean;
+};
+
+const SideMenu = ({
+  isOpen,
+  setIsOpen,
+  scrollToHome,
+  scrollToAbout,
+  scrollToProject,
+  scrollToContact,
+}: OpenType) => {
+  const activeItemIndex = 0; // 활성화된 아이템의 index
+
   return (
     <SideMenuContainer>
       <CloseButton
@@ -53,9 +73,28 @@ const SideMenu = ({ isOpen, setIsOpen }: OpenType) => {
         )}
       </CloseButton>
       {menuData.map((item, i) => {
+        // 현재 아이템이 활성화된 아이템인지 확인하고, isActive 프로퍼티를 전달합니다.
+        const isActive = i === activeItemIndex;
         return (
-          <MenuItem key={i}>
-            <Icon icon={item.icon} size={30} color={item.color} margin="0" />
+          <MenuItem key={i} isActive={isActive}>
+            <Icon
+              icon={item.icon}
+              size={30}
+              color={item.color}
+              margin="0"
+              onClick={() => {
+                // 각 아이콘을 클릭할 때 해당 함수를 호출합니다.
+                if (item.menu === "home") {
+                  scrollToHome();
+                } else if (item.menu === "about") {
+                  scrollToAbout();
+                } else if (item.menu === "project") {
+                  scrollToProject();
+                } else if (item.menu === "contact") {
+                  scrollToContact();
+                }
+              }}
+            />
           </MenuItem>
         );
       })}

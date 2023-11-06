@@ -1,4 +1,4 @@
-import React from "react";
+import React, { forwardRef, useRef } from "react";
 import { FlexColumnDiv, FlexRowDiv } from "src/module/styled/FlexDiv";
 import styled from "styled-components";
 import { BsFillArrowRightCircleFill } from "react-icons/bs";
@@ -29,6 +29,7 @@ const IntroduceTitle = styled.div`
   font-weight: 700;
   color: ${({ theme }) => theme.color.pointBlue};
 `;
+
 const Channel = styled.div`
   font-size: 1.7rem;
   > :first-child {
@@ -65,16 +66,19 @@ const MoreBtn = styled(FlexRowDiv)`
   border: 1px solid ${({ theme }) => theme.color.mainBlack};
   border-radius: 20px;
 `;
+
 const Introduce = styled.div``;
 
 const DesBox = styled(FlexRowDiv)`
   justify-content: space-between;
 `;
+
 const DesTitle = styled.div`
   margin-bottom: 30px;
   font-size: 20px;
   font-weight: 500;
 `;
+
 const Des = styled.div`
   font-weight: 300;
   letter-spacing: 0.025rem;
@@ -83,9 +87,10 @@ const Des = styled.div`
     margin-bottom: 10px;
   }
 `;
-export const About = () => {
+
+export const About = forwardRef<HTMLDivElement>((props, ref: any) => {
   return (
-    <AboutContainer>
+    <AboutContainer ref={ref}>
       <AboutMe>
         <AboutImg src={process.env.PUBLIC_URL + "/image/profile.png"}></AboutImg>
         <ContentBox>
@@ -134,4 +139,4 @@ export const About = () => {
       </Introduce>
     </AboutContainer>
   );
-};
+});

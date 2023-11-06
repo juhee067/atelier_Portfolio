@@ -10,6 +10,7 @@ const SearchEngineContainer = styled.div<SearchEngineContainerProps>`
   width: 340px;
   height: 100%;
   padding: 50px 30px;
+
   background-color: ${({ theme }) => theme.color.menuBg};
   color: ${({ theme }) => theme.color.mainWhite};
 `;

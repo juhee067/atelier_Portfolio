@@ -1,5 +1,5 @@
 import ScrollDownIndicator from "../components/scrollDown/ScrollDownIndicator";
-import React from "react";
+import React, { forwardRef, useRef } from "react";
 import styled from "styled-components";
 
 const HomeContainer = styled.div`
@@ -70,9 +70,9 @@ const Dec = styled.div`
   }
 `;
 
-const Home = () => {
+const Home = forwardRef<HTMLDivElement>((props, ref: any) => {
   return (
-    <HomeContainer>
+    <HomeContainer ref={ref}>
       <ContentBox>
         <Var>let CHOIJUHEE_PORTFORLIO =</Var>
         <TitleBox>
@@ -88,6 +88,6 @@ const Home = () => {
       <ScrollDownIndicator />
     </HomeContainer>
   );
-};
+});
 
 export default Home;
