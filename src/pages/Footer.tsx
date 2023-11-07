@@ -10,6 +10,7 @@ const ContentBox = styled(FlexRowCenterDiv)`
   color: ${({ theme }) => theme.color.gray};
   justify-content: space-between;
 `;
+
 const Mark = styled.div`
   font-size: 2rem;
   text-align: right;

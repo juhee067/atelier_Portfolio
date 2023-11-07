@@ -16,4 +16,3 @@ const theme = {
   color,
 };
 export default theme;
-// ${({ theme }) => theme.color.mainBlack};
