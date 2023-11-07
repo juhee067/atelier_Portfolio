@@ -6,6 +6,7 @@ import styled, { ThemeProvider } from "styled-components";
 import theme from "./styles/Theme";
 import { Route, Routes } from "react-router-dom";
 import { ProjectDetail } from "./pages/ProjectDetail";
+import Alert from "./components/idModal/Alert";
 
 const ContentBox = styled.div`
   display: flex;
@@ -40,6 +41,7 @@ function App() {
     <ThemeProvider theme={theme}>
       <GlobalStyle />
       <ContentBox>
+        <Alert />
         <Menu
           scrollToHome={() => scrollToComponent(homeRef)}
           scrollToAbout={() => scrollToComponent(aboutRef)}
