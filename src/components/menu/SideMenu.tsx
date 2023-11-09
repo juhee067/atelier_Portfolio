@@ -39,6 +39,8 @@ const CloseButton = styled.div`
 `;
 
 interface OpenType {
+  isAlert: boolean;
+  setIsAlert: React.Dispatch<React.SetStateAction<boolean>>;
   isOpen: boolean;
   setIsOpen: React.Dispatch<React.SetStateAction<boolean>>;
   scrollToHome: () => void;
@@ -52,6 +54,8 @@ type MenuItemProps = {
 };
 
 const SideMenu = ({
+  isAlert,
+  setIsAlert,
   isOpen,
   setIsOpen,
   scrollToHome,
@@ -63,7 +67,6 @@ const SideMenu = ({
 
   const handleOnClick = (idx: number) => {
     setCountIndex(idx);
-    console.log(countIndex);
   };
 
   const handleMenuClick = (menu: string) => {
@@ -75,6 +78,8 @@ const SideMenu = ({
       scrollToProject();
     } else if (menu === "contact") {
       scrollToContact();
+    } else if (menu === "id") {
+      setIsAlert(true);
     }
   };
 

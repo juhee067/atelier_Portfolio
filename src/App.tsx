@@ -7,6 +7,7 @@ import theme from "./styles/Theme";
 import { Route, Routes } from "react-router-dom";
 import { ProjectDetail } from "./pages/ProjectDetail";
 import Alert from "./components/idModal/Alert";
+import IdModal from "./components/idModal/IdModal";
 
 const ContentBox = styled.div`
   display: flex;
@@ -14,6 +15,8 @@ const ContentBox = styled.div`
 
 function App() {
   let [isOpen, setIsOpen] = useState<boolean>(false);
+  let [isAlert, setIsAlert] = useState<boolean>(false);
+  let [isIdModal, setIsIdModal] = useState<boolean>(false);
 
   const homeRef = useRef<HTMLDivElement>(null);
   const aboutRef = useRef<HTMLDivElement>(null);
@@ -41,7 +44,7 @@ function App() {
     <ThemeProvider theme={theme}>
       <GlobalStyle />
       <ContentBox>
-        <Alert />
+        <Alert isAlert={isAlert} setIsAlert={setIsAlert} setIsIdModal={setIsIdModal} />
         <Menu
           scrollToHome={() => scrollToComponent(homeRef)}
           scrollToAbout={() => scrollToComponent(aboutRef)}
@@ -49,8 +52,13 @@ function App() {
           scrollToContact={() => scrollToComponent(contactRef)}
           isOpen={isOpen}
           setIsOpen={setIsOpen}
+          isAlert={isAlert}
+          setIsAlert={setIsAlert}
+          isIdModal={isIdModal}
+          setIsIdModal={setIsIdModal}
         />
         <DropBox isOpen={isOpen} />
+        <IdModal isIdModal={isIdModal} />
         <View homeRef={homeRef} aboutRef={aboutRef} projectRef={projectRef} contactRef={contactRef} />
       </ContentBox>
       <Routes>

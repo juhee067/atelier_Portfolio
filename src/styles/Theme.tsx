@@ -13,6 +13,7 @@ const color = {
   paragraph: "#9f9f9f",
   alertModal: "#1F1F1F",
   alertModalPointBlue: "#0078D4",
+  idModalBg: "#282828",
 };
 const theme = {
   color,

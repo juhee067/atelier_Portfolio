@@ -19,11 +19,17 @@ const Menu = ({
   scrollToContact,
   isOpen,
   setIsOpen,
+  isAlert,
+  setIsAlert,
+  isIdModal,
+  setIsIdModal,
 }: any) => {
   return (
     <>
       <MenuContainer>
         <SideMenu
+          isAlert={isAlert}
+          setIsAlert={setIsAlert}
           isOpen={isOpen}
           setIsOpen={setIsOpen}
           scrollToHome={scrollToHome}
@@ -32,7 +38,7 @@ const Menu = ({
           scrollToContact={scrollToContact}
         />
         <SearchEngine isOpen={isOpen} setIsOpen={setIsOpen} />
-        <TopMenu />
+        <TopMenu isIdModal={isIdModal} setIsIdModal={setIsIdModal} />
       </MenuContainer>
     </>
   );
