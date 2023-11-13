@@ -21,6 +21,7 @@ const MenuItem = styled.div<MenuItemProps>`
   padding: 0 24px;
   margin-bottom: 40px;
   border-left: ${({ isActive, theme }) => (isActive ? `1px solid ${theme.color.mainWhite} ` : "none")};
+  pointer-events: ${({ isIdModal }) => (isIdModal ? "none" : null)};
 `;
 
 const CloseButton = styled.div`
@@ -39,6 +40,7 @@ const CloseButton = styled.div`
 `;
 
 interface OpenType {
+  isIdModal: boolean;
   isAlert: boolean;
   setIsAlert: React.Dispatch<React.SetStateAction<boolean>>;
   isOpen: boolean;
@@ -51,10 +53,11 @@ interface OpenType {
 
 type MenuItemProps = {
   isActive: boolean;
+  isIdModal: boolean;
 };
 
 const SideMenu = ({
-  isAlert,
+  isIdModal,
   setIsAlert,
   isOpen,
   setIsOpen,
@@ -100,7 +103,7 @@ const SideMenu = ({
         const isActive = i === countIndex;
         const iconColor = isActive ? theme.color.mainWhite : "#757575";
         return (
-          <MenuItem key={i} isActive={isActive}>
+          <MenuItem key={i} isActive={isActive} isIdModal={isIdModal}>
             <Icon
               icon={item.icon}
               size={30}

@@ -18,11 +18,11 @@ interface ModalType {
   isIdModal: boolean;
   setIsIdModal: React.Dispatch<React.SetStateAction<boolean>>;
 }
+
 const TopMenu = ({ isIdModal, setIsIdModal }: ModalType) => {
   return (
     <MenuContainer>
       <File file="index.html" iconColor="indexFile" fileIcon={<PiBracketsAngle />} />
-
       {isIdModal ? (
         <File
           file="ILoveCode.jpg"

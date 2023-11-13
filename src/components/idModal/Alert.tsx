@@ -50,6 +50,7 @@ const Alert = ({ isAlert, setIsAlert, setIsIdModal }: OpenType) => {
   const modalOpen = () => {
     setIsAlert((prev) => !prev);
     setIsIdModal((prev) => !prev);
+    document.body.style.overflow = "hidden";
   };
   return (
     <AlertContainer isAlert={isAlert}>

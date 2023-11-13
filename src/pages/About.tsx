@@ -1,8 +1,8 @@
-import React, { forwardRef, useRef } from "react";
+import React, { forwardRef } from "react";
 import { FlexColumnDiv, FlexRowDiv } from "src/module/styled/FlexDiv";
 import styled from "styled-components";
-import { BsFillArrowRightCircleFill } from "react-icons/bs";
 import { Link } from "react-router-dom";
+import MoreBtn from "../components/MoreBtn";
 
 const AboutContainer = styled.div``;
 
@@ -24,6 +24,7 @@ const ContentBox = styled(FlexColumnDiv)`
 `;
 
 const Intro = styled.div``;
+
 const IntroduceTitle = styled.div`
   margin-bottom: 40px;
   font-size: 20px;
@@ -58,16 +59,6 @@ const Content = styled.div`
   }
 `;
 
-const MoreBtn = styled(FlexRowDiv)`
-  display: inline-flex;
-  justify-content: center;
-  padding: 10px 20px;
-  margin-top: 20px;
-  gap: 10px;
-  border: 1px solid ${({ theme }) => theme.color.mainBlack};
-  border-radius: 20px;
-`;
-
 const Introduce = styled.div``;
 
 const DesBox = styled(FlexRowDiv)`
@@ -98,15 +89,13 @@ export const About = forwardRef<HTMLDivElement>((props, ref: any) => {
           <Intro>
             <Title>ABOUT ME.</Title>
             <Content>
-              <p>어디서 "똑"소리 나지 않나요? </p>
+              <p>어디서 "똑"소리 나지 않나요?</p>
               <p>안녕하세요! 프론트엔드 개발자 최주희입니다.</p>
             </Content>
-            <MoreBtn>
-              <Link to="https://www.notion.so/772ca0c9ecaa47b6977cc0d596f01298?pvs=4" target="_blank">
-                자기소개 더보기
-              </Link>
-              <BsFillArrowRightCircleFill />
-            </MoreBtn>
+            <MoreBtn
+              content="자기소개 더보기"
+              src="https://www.notion.so/772ca0c9ecaa47b6977cc0d596f01298?pvs=4"
+            />
           </Intro>
           <Channel>
             <p>Channel</p>

@@ -28,6 +28,7 @@ const Menu = ({
     <>
       <MenuContainer>
         <SideMenu
+          isIdModal={isIdModal}
           isAlert={isAlert}
           setIsAlert={setIsAlert}
           isOpen={isOpen}

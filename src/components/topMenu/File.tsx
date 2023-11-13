@@ -46,6 +46,12 @@ interface FileType {
 }
 
 const File = ({ file, icon, fileIcon, setIsIdModal, iconColor }: FileType) => {
+  const handleClick = () => {
+    if (setIsIdModal) {
+      setIsIdModal((prev) => !prev);
+      document.body.style.overflow = "unset";
+    }
+  };
   return (
     <FileContainer>
       <FileName closeicon={icon}>
@@ -54,7 +60,7 @@ const File = ({ file, icon, fileIcon, setIsIdModal, iconColor }: FileType) => {
           {file}
         </TitleBox>
         {icon && setIsIdModal ? (
-          <IconBox onClick={() => setIsIdModal((prev) => !prev)}>
+          <IconBox onClick={handleClick}>
             <AiOutlineClose />
           </IconBox>
         ) : null}

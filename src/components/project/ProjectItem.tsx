@@ -1,10 +1,13 @@
 import React from "react";
 import { FlexColumnDiv } from "src/module/styled/FlexDiv";
 import styled from "styled-components";
+import { IconType } from "react-icons";
+import { Link, useParams } from "react-router-dom";
 
 const ProjectBox = styled(FlexColumnDiv)`
   width: 100%;
   margin-top: 20px;
+  cursor: pointer;
   &:nth-child(odd) {
     text-align: right;
     align-items: flex-end;
@@ -29,6 +32,11 @@ const TopBox = styled(FlexColumnDiv)`
   margin-bottom: 20px;
 `;
 
+const ProjectNum = styled.div`
+  font-size: 4rem;
+  font-weight: 900;
+`;
+
 const Title = styled.div`
   font-size: 3rem;
   font-weight: 700;
@@ -46,22 +54,31 @@ const Stack = styled.div`
   color: ${({ theme }) => theme.color.gray};
 `;
 
-interface ProjectProps {
-  title: string;
+type projectType = {
+  icon: IconType;
+  color: string;
+  projectNum: string;
+  text: string;
   period: string;
   stack: string;
   src: string;
+  isModal: boolean;
+};
+
+interface ProjectProps {
+  project: projectType;
 }
 
-export const ProjectItem: React.FC<ProjectProps> = ({ title, period, stack, src }) => {
+export const ProjectItem: React.FC<ProjectProps> = ({ project }) => {
   return (
     <ProjectBox>
       <TopBox>
-        <Period>{period}</Period>
-        <Title>{title}</Title>
-        <Stack>{stack}</Stack>
+        <ProjectNum>{project.projectNum}</ProjectNum>
+        <Period>{project.period}</Period>
+        <Title>{project.text}</Title>
+        <Stack>{project.stack}</Stack>
       </TopBox>
-      <ImgBox src={src}></ImgBox>
+      <ImgBox src={project.src} />
     </ProjectBox>
   );
 };
