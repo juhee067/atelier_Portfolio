@@ -12,6 +12,7 @@
     "@types/react": "^18.2.33",
     "@types/react-dom": "^18.2.14",
     "emailjs-com": "^3.2.0",
+    "gh-pages": "^6.0.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-icons": "^4.11.0",
@@ -21,11 +22,14 @@
     "typescript": "^5.2.2",
     "web-vitals": "^2.1.4"
   },
+  "homepage": "https://juhee067.github.io/atelier_Portfolio/",
   "scripts": {
     "start": "react-scripts start",
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "tsc --build",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build"
   },
   "eslintConfig": {
     "extends": [
