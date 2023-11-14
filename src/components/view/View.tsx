@@ -5,13 +5,13 @@ import { About } from "src/pages/About";
 import { Contact } from "src/pages/Contact";
 import Footer from "src/pages/Footer";
 import { Project } from "src/pages/Project";
-import PortfolioText from "../PortfolioText";
 import { ProjectDetail } from "src/pages/ProjectDetail";
+import IdModal from "../idModal/IdModal";
 
 const ViewContainer = styled.div`
+  position: relative;
   max-width: 900px;
   width: 100%;
-
   padding: 50px 0 50px 80px;
   margin: 0 auto;
 `;
@@ -31,7 +31,6 @@ const View = ({ homeRef, aboutRef, projectRef, contactRef }: RefProps) => {
       <ViewContent>
         <Home ref={homeRef} />
         <About ref={aboutRef} />
-        <PortfolioText />
         <Project ref={projectRef} />
         <Contact ref={contactRef} />
         <Footer />
