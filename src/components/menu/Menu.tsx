@@ -23,11 +23,13 @@ const Menu = ({
   setIsAlert,
   isIdModal,
   setIsIdModal,
+  project,
 }: any) => {
   return (
     <>
       <MenuContainer>
         <SideMenu
+          isIdModal={isIdModal}
           isAlert={isAlert}
           setIsAlert={setIsAlert}
           isOpen={isOpen}
@@ -38,7 +40,7 @@ const Menu = ({
           scrollToContact={scrollToContact}
         />
         <SearchEngine isOpen={isOpen} setIsOpen={setIsOpen} />
-        <TopMenu isIdModal={isIdModal} setIsIdModal={setIsIdModal} />
+        <TopMenu isIdModal={isIdModal} setIsIdModal={setIsIdModal} project={project} />
       </MenuContainer>
     </>
   );

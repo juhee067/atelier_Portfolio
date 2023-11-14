@@ -5,8 +5,6 @@ import { About } from "src/pages/About";
 import { Contact } from "src/pages/Contact";
 import Footer from "src/pages/Footer";
 import { Project } from "src/pages/Project";
-import { ProjectDetail } from "src/pages/ProjectDetail";
-import IdModal from "../idModal/IdModal";
 
 const ViewContainer = styled.div`
   position: relative;
@@ -34,7 +32,6 @@ const View = ({ homeRef, aboutRef, projectRef, contactRef }: RefProps) => {
         <Project ref={projectRef} />
         <Contact ref={contactRef} />
         <Footer />
-        <ProjectDetail />
       </ViewContent>
     </ViewContainer>
   );

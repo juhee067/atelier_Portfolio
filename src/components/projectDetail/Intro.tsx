@@ -2,17 +2,22 @@ import React from "react";
 import { FlexColumnDiv, FlexRowDiv } from "src/module/styled/FlexDiv";
 import styled from "styled-components";
 
-const ProjectBox = styled.div``;
+const ProjectBox = styled.div`
+  margin-bottom: 50px;
+`;
 
 const ImgBox = styled.img`
-  width: 300px;
+  width: 400px;
   height: 300px;
   margin-right: 30px;
   border-radius: 30px;
   border: 1px solid ${({ theme }) => theme.color.mean};
+  background-color: ${({ theme }) => theme.color.pointBlue};
 `;
 
-const TopBox = styled(FlexColumnDiv)``;
+const TopBox = styled(FlexColumnDiv)`
+  margin-left: 50px;
+`;
 
 const MenuTitle = styled.div`
   margin-bottom: 20px;
@@ -31,7 +36,7 @@ const Period = styled.div`
 
 const Title = styled.div`
   margin-bottom: 20px;
-  font-size: 3rem;
+  font-size: 4rem;
   font-weight: 700;
 `;
 
@@ -43,6 +48,7 @@ const Stack = styled.div`
 `;
 
 const Des = styled.div`
+  margin-bottom: 20px;
   font-weight: 300;
   font-size: 1.8rem;
   line-height: 1.5;
@@ -54,7 +60,7 @@ interface ProjectProps {
   period: string;
   stack: string;
   src: string;
-  des: string;
+  des: string[];
 }
 
 export const Intro: React.FC<ProjectProps> = ({ title, period, stack, src, des }) => {
@@ -67,7 +73,11 @@ export const Intro: React.FC<ProjectProps> = ({ title, period, stack, src, des }
           <Period>{period}</Period>
           <Title>{title}</Title>
           <Stack>{stack}</Stack>
-          <Des>{des}</Des>
+          <Des>
+            {des.map((item, index) => {
+              return <p key={index}>{item}</p>;
+            })}
+          </Des>
         </TopBox>
       </ContentBox>
     </ProjectBox>

@@ -14,6 +14,7 @@ const color = {
   alertModal: "#1F1F1F",
   alertModalPointBlue: "#0078D4",
   idModalBg: "#282828",
+  reactColor: "#61DAFB",
 };
 const theme = {
   color,

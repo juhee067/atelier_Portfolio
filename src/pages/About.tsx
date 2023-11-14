@@ -1,8 +1,8 @@
-import React, { forwardRef, useRef } from "react";
+import React, { forwardRef } from "react";
 import { FlexColumnDiv, FlexRowDiv } from "src/module/styled/FlexDiv";
 import styled from "styled-components";
-import { BsFillArrowRightCircleFill } from "react-icons/bs";
 import { Link } from "react-router-dom";
+import MoreBtn from "../components/MoreBtn";
 
 const AboutContainer = styled.div``;
 
@@ -24,6 +24,7 @@ const ContentBox = styled(FlexColumnDiv)`
 `;
 
 const Intro = styled.div``;
+
 const IntroduceTitle = styled.div`
   margin-bottom: 40px;
   font-size: 20px;
@@ -58,16 +59,6 @@ const Content = styled.div`
   }
 `;
 
-const MoreBtn = styled(FlexRowDiv)`
-  display: inline-flex;
-  justify-content: center;
-  padding: 10px 20px;
-  margin-top: 20px;
-  gap: 10px;
-  border: 1px solid ${({ theme }) => theme.color.mainBlack};
-  border-radius: 20px;
-`;
-
 const Introduce = styled.div``;
 
 const DesBox = styled(FlexRowDiv)`
@@ -98,15 +89,13 @@ export const About = forwardRef<HTMLDivElement>((props, ref: any) => {
           <Intro>
             <Title>ABOUT ME.</Title>
             <Content>
-              <p>어디서 "똑"소리 나지 않나요? </p>
+              <p>어디서 "똑"소리 나지 않나요?</p>
               <p>안녕하세요! 프론트엔드 개발자 최주희입니다.</p>
             </Content>
-            <MoreBtn>
-              <Link to="https://www.notion.so/772ca0c9ecaa47b6977cc0d596f01298?pvs=4" target="_blank">
-                자기소개 더보기
-              </Link>
-              <BsFillArrowRightCircleFill />
-            </MoreBtn>
+            {/* <MoreBtn
+              content="자기소개 더보기"
+              src="https://www.notion.so/772ca0c9ecaa47b6977cc0d596f01298?pvs=4"
+            /> */}
           </Intro>
           <Channel>
             <p>Channel</p>
@@ -139,11 +128,11 @@ export const About = forwardRef<HTMLDivElement>((props, ref: any) => {
           <ContentBox>
             <DesTitle>너, 나, 그리고 우리</DesTitle>
             <Des>
-              <p>주식 데이터 정보를 시각적으로 분석할 수 있도록</p>
-              <p>벡터 그래픽으로 제작한 경험을 살려 웹 기반</p>
-              <p>정보시각화 프로젝트를 수행한 경험이 있습니다.</p>
-              <p>디자인과 프론트엔드 개발을 융합하여 사용자들에게 직관적이고</p>
-              <p>효과적인 정보를 제공하는 데 관심이 많습니다.</p>
+              <p>나눔이 담긴 자살 예방 웹사이트를 구축하며 깨달았습니다.</p>
+              <p>우리 각자가 필요하고, 서로에게 필요하며,</p>
+              <p>무엇보다도 우리 모두가 함께 필요한 이곳에서</p>
+              <p>새로운 아이디어와 혁신적인 솔루션을 모색하여, </p>
+              <p>더 나은 세상을 만들어 가고자 합니다.</p>
             </Des>
           </ContentBox>
         </DesBox>

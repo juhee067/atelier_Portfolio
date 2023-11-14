@@ -1,5 +1,5 @@
 import ScrollDownIndicator from "../components/scrollDown/ScrollDownIndicator";
-import React, { forwardRef, useRef } from "react";
+import React, { forwardRef } from "react";
 import styled from "styled-components";
 
 const HomeContainer = styled.div`
