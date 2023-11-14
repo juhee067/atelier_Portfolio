@@ -22,7 +22,7 @@
     "typescript": "^5.2.2",
     "web-vitals": "^2.1.4"
   },
-  "homepage": "https://juhee067.github.io/atelier_Portfolio/",
+  "homepage": "https://juhee067.github.io/",
   "scripts": {
     "start": "react-scripts start",
     "test": "echo \"Error: no test specified\" && exit 1",
