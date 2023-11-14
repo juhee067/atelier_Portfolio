@@ -2,12 +2,12 @@ import React from "react";
 import { FlexColumnDiv } from "src/module/styled/FlexDiv";
 import styled from "styled-components";
 import { IconType } from "react-icons";
-import { Link, useParams } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 const ProjectBox = styled(FlexColumnDiv)`
   width: 100%;
   margin-top: 20px;
-  cursor: pointer;
+
   &:nth-child(odd) {
     text-align: right;
     align-items: flex-end;
@@ -25,6 +25,7 @@ const ImgBox = styled.img`
   margin-bottom: 50px;
   border-radius: 20px;
   border: 1px solid ${({ theme }) => theme.color.gray};
+  cursor: pointer;
 `;
 
 const TopBox = styled(FlexColumnDiv)`
@@ -78,7 +79,9 @@ export const ProjectItem: React.FC<ProjectProps> = ({ project }) => {
         <Title>{project.text}</Title>
         <Stack>{project.stack}</Stack>
       </TopBox>
-      <ImgBox src={project.src} />
+      <Link to={`/projects/${project.text}`} style={{ display: "block" }}>
+        <ImgBox src={project.src} />
+      </Link>
     </ProjectBox>
   );
 };

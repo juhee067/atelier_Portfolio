@@ -84,7 +84,11 @@ const SideMenu = ({
 
   useEffect(() => {
     const handleScroll = () => {
-      console.log("Scroll position:", window.scrollY);
+      if (window.location.pathname !== "/") {
+        setCountIndex(2);
+        return;
+      }
+
       if (0 < window.scrollY && window.scrollY <= 740) {
         setCountIndex(0); // 스크롤 위치가 500 이상이면 두 번째 메뉴를 활성화
       } else if (740 < window.scrollY && window.scrollY <= 1500) {

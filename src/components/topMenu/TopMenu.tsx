@@ -8,7 +8,7 @@ import { FaReact } from "react-icons/fa";
 
 const MenuContainer = styled.div`
   position: fixed;
-  margin-left: 81px;
+  margin-left: 80px;
   display: flex;
   width: 100vw;
   height: 50px;
@@ -39,6 +39,12 @@ export const fileData: {
   },
   "메시지 전달형 자살예방웹사이트": {
     file: "메시지 전달형 자살예방웹사이트.tsx",
+    iconColor: "reactColor",
+    fileIcon: <FaReact />,
+    icon: true,
+  },
+  "와인 공유 커뮤니티": {
+    file: "와인 공유 커뮤니티.jsx",
     iconColor: "reactColor",
     fileIcon: <FaReact />,
     icon: true,
