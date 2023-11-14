@@ -1,10 +1,8 @@
-import React, { useState } from "react";
+import React from "react";
 import styled from "styled-components";
 import { Intro } from "./Intro";
-import UserUx from "./Background";
-import { projectData } from "src/data/data";
+
 import { IconType } from "react-icons";
-import Background from "./Background";
 
 const DesContainer = styled.div`
   position: fixed;
@@ -32,7 +30,7 @@ type projectType = {
   stack: string;
   src: string;
   isModal: boolean;
-  des: string;
+  des: string[];
 };
 
 interface ProjectProps {

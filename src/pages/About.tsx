@@ -92,10 +92,10 @@ export const About = forwardRef<HTMLDivElement>((props, ref: any) => {
               <p>어디서 "똑"소리 나지 않나요?</p>
               <p>안녕하세요! 프론트엔드 개발자 최주희입니다.</p>
             </Content>
-            <MoreBtn
+            {/* <MoreBtn
               content="자기소개 더보기"
               src="https://www.notion.so/772ca0c9ecaa47b6977cc0d596f01298?pvs=4"
-            />
+            /> */}
           </Intro>
           <Channel>
             <p>Channel</p>

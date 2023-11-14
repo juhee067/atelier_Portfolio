@@ -1,9 +1,10 @@
-import React, { useEffect } from "react";
+import React from "react";
 import styled from "styled-components";
 import File from "./File";
 import { PiBracketsAngle } from "react-icons/pi";
 import { ImFilePicture } from "react-icons/im";
-import { useParams } from "react-router-dom";
+import { useLocation } from "react-router-dom";
+import { FaReact } from "react-icons/fa";
 
 const MenuContainer = styled.div`
   position: fixed;
@@ -21,10 +22,35 @@ interface ModalType {
   project: any;
 }
 
+export const fileData: {
+  [key: string]: { file: string; iconColor: string; fileIcon: JSX.Element; icon: boolean };
+} = {
+  "독서 버킷리스트": {
+    file: "독서 버킷리스트.jsx",
+    iconColor: "reactColor",
+    fileIcon: <FaReact />,
+    icon: true,
+  },
+  "메신저 대화 분석 시각화 웹": {
+    file: "메신저 대화 분석 시각화 웹.tsx",
+    iconColor: "reactColor",
+    fileIcon: <FaReact />,
+    icon: true,
+  },
+  "메시지 전달형 자살예방웹사이트": {
+    file: "메시지 전달형 자살예방웹사이트.tsx",
+    iconColor: "reactColor",
+    fileIcon: <FaReact />,
+    icon: true,
+  },
+};
+
 const TopMenu = ({ isIdModal, setIsIdModal, project }: ModalType) => {
-  // useEffect(() => {
-  //   console.log(link);
-  // });
+  const { pathname } = useLocation();
+  const decodedLinkName = decodeURIComponent(pathname.split("/").pop() || ""); // 맨 마지막 부분만 추출하고 디코딩
+
+  const dynamicFile = fileData[decodedLinkName];
+
   return (
     <MenuContainer>
       <File file="index.html" iconColor="indexFile" fileIcon={<PiBracketsAngle />} />
@@ -37,6 +63,7 @@ const TopMenu = ({ isIdModal, setIsIdModal, project }: ModalType) => {
           setIsIdModal={setIsIdModal}
         />
       ) : null}
+      {dynamicFile && <File {...dynamicFile} />}
     </MenuContainer>
   );
 };

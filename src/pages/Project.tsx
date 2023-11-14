@@ -2,7 +2,7 @@ import { ProjectItem } from "../components/project/ProjectItem";
 import React, { forwardRef } from "react";
 import { styled } from "styled-components";
 import { projectData } from "src/data/data";
-import { Link, useParams } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 const ProjectContainer = styled.div`
   padding: 150px 0;

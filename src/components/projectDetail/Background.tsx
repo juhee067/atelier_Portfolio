@@ -12,11 +12,15 @@ const Des = styled.div`
   color: ${({ theme }) => theme.color.idModalBg};
 `;
 
-const Background = ({ des }: { des: string }) => {
+const Background = ({ des }: { des: string[] }) => {
   return (
     <UserUxContainer>
       <DetailTitle children="프로젝트 기획 배경" />
-      <Des>{des}</Des>
+      <Des>
+        {des.map((item, index) => {
+          return <p key={index}>{item}</p>;
+        })}
+      </Des>
     </UserUxContainer>
   );
 };

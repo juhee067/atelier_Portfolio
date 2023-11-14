@@ -10,7 +10,7 @@ const Table = styled.table`
   width: 100%;
   border-collapse: collapse;
   margin-top: 10px;
-  border: 1px solid ${({ theme }) => theme.color.bottomLine}; /* 테두리 추가 */
+  border: 1px solid ${({ theme }) => theme.color.bottomLine};
 `;
 
 const Th = styled.th`
@@ -50,7 +50,6 @@ const Stack: React.FC<UseStackProps> = ({ useStack }) => {
                 {item.badges.map((badge, badgeIndex) => (
                   <img
                     key={badgeIndex}
-                    // <img src="https://img.shields.io/badge/reactrouter-CA4245?style=for-the-badge&logo=reactrouter&logoColor=white">|
                     src={`https://img.shields.io/badge/${badge.logo}-${badge.color}?style=for-the-badge&logo=${badge.logo}&logoColor=white`}
                     alt={badge.label}
                   />

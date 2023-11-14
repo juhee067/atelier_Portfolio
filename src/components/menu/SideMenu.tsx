@@ -1,10 +1,12 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import styled from "styled-components";
 
 import { menuData } from "src/data/data";
 import Icon from "../Icon";
 import { AiOutlineArrowLeft, AiOutlineArrowRight } from "react-icons/ai";
 import theme from "src/styles/Theme";
+import { useLocation } from "react-router-dom";
+import { fileData } from "../topMenu/TopMenu";
 
 const SideMenuContainer = styled.div`
   position: relative;
@@ -21,7 +23,7 @@ const MenuItem = styled.div<MenuItemProps>`
   padding: 0 24px;
   margin-bottom: 40px;
   border-left: ${({ isActive, theme }) => (isActive ? `1px solid ${theme.color.mainWhite} ` : "none")};
-  pointer-events: ${({ isIdModal }) => (isIdModal ? "none" : null)};
+  pointer-events: ${({ isIdModal, dynamicFile }) => (isIdModal || dynamicFile ? "none" : null)};
 `;
 
 const CloseButton = styled.div`
@@ -51,9 +53,16 @@ interface OpenType {
   scrollToContact: () => void;
 }
 
+type dynamicFileType = {
+  file: string;
+  iconColor: string;
+  fileIcon: JSX.Element;
+  icon: boolean;
+};
 type MenuItemProps = {
   isActive: boolean;
   isIdModal: boolean;
+  dynamicFile: dynamicFileType;
 };
 
 const SideMenu = ({
@@ -67,6 +76,34 @@ const SideMenu = ({
   scrollToContact,
 }: OpenType) => {
   const [countIndex, setCountIndex] = useState(0);
+
+  const { pathname } = useLocation();
+  const decodedLinkName = decodeURIComponent(pathname.split("/").pop() || ""); // 맨 마지막 부분만 추출하고 디코딩
+
+  const dynamicFile = fileData[decodedLinkName];
+
+  useEffect(() => {
+    const handleScroll = () => {
+      console.log("Scroll position:", window.scrollY);
+      if (0 < window.scrollY && window.scrollY <= 740) {
+        setCountIndex(0); // 스크롤 위치가 500 이상이면 두 번째 메뉴를 활성화
+      } else if (740 < window.scrollY && window.scrollY <= 1500) {
+        setCountIndex(1); // 스크롤 위치가 500 미만이면 첫 번째 메뉴를 활성화
+      } else if (1500 < window.scrollY && window.scrollY <= 4335) {
+        setCountIndex(2); // 스크롤 위치가 500 미만이면 첫 번째 메뉴를 활성화
+      } else if (4335 < window.scrollY) {
+        setCountIndex(3); // 스크롤 위치가 500 미만이면 첫 번째 메뉴를 활성화
+      }
+    };
+
+    // 스크롤 이벤트 리스너 등록
+    window.addEventListener("scroll", handleScroll);
+
+    // 컴포넌트가 언마운트될 때 이벤트 리스너 제거
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []); // 빈 배열은 컴포넌트가 마운트될 때 한 번만 실행되도록 합니다.
 
   const handleOnClick = (idx: number) => {
     setCountIndex(idx);
@@ -103,7 +140,7 @@ const SideMenu = ({
         const isActive = i === countIndex;
         const iconColor = isActive ? theme.color.mainWhite : "#757575";
         return (
-          <MenuItem key={i} isActive={isActive} isIdModal={isIdModal}>
+          <MenuItem key={i} isActive={isActive} isIdModal={isIdModal} dynamicFile={dynamicFile}>
             <Icon
               icon={item.icon}
               size={30}

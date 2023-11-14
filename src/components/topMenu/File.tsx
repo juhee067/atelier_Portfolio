@@ -3,12 +3,13 @@ import styled from "styled-components";
 import { AiOutlineClose } from "react-icons/ai";
 
 import { FlexRowDiv } from "src/module/styled/FlexDiv";
+import { useNavigate } from "react-router-dom";
 
 const FileContainer = styled.div`
   display: flex;
   align-items: center;
   padding: 0 20px;
-  width: 200px;
+  min-width: 200px;
   height: 100%;
   background-color: ${({ theme }) => theme.color.menuSubBg};
   font-size: 1.7rem;
@@ -34,6 +35,7 @@ const TitleBox = styled(FlexRowDiv)`
 `;
 
 const IconBox = styled.div`
+  margin-left: 20px;
   cursor: pointer;
 `;
 
@@ -46,11 +48,14 @@ interface FileType {
 }
 
 const File = ({ file, icon, fileIcon, setIsIdModal, iconColor }: FileType) => {
+  const navigate = useNavigate();
+
   const handleClick = () => {
     if (setIsIdModal) {
       setIsIdModal((prev) => !prev);
       document.body.style.overflow = "unset";
     }
+    navigate("/");
   };
   return (
     <FileContainer>
@@ -59,7 +64,7 @@ const File = ({ file, icon, fileIcon, setIsIdModal, iconColor }: FileType) => {
           <Icon iconColor={iconColor}>{fileIcon}</Icon>
           {file}
         </TitleBox>
-        {icon && setIsIdModal ? (
+        {icon ? (
           <IconBox onClick={handleClick}>
             <AiOutlineClose />
           </IconBox>

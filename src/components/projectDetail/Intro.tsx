@@ -60,7 +60,7 @@ interface ProjectProps {
   period: string;
   stack: string;
   src: string;
-  des: string;
+  des: string[];
 }
 
 export const Intro: React.FC<ProjectProps> = ({ title, period, stack, src, des }) => {
@@ -73,7 +73,11 @@ export const Intro: React.FC<ProjectProps> = ({ title, period, stack, src, des }
           <Period>{period}</Period>
           <Title>{title}</Title>
           <Stack>{stack}</Stack>
-          <Des>{des}</Des>
+          <Des>
+            {des.map((item, index) => {
+              return <p key={index}>{item}</p>;
+            })}
+          </Des>
         </TopBox>
       </ContentBox>
     </ProjectBox>

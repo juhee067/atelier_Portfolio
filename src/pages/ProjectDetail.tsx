@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import styled from "styled-components";
 
 import { IconType } from "react-icons";
@@ -42,8 +42,8 @@ type ProjectType = {
   period: string;
   stack: string;
   src: string;
-  des: string;
-  background: string;
+  des: string[];
+  background: string[];
   isModal: boolean;
   video: string;
   projectSrc: string;
@@ -60,6 +60,11 @@ interface ProjectDetailProps {
 
 export const ProjectDetail: React.FC<ProjectDetailProps> = ({ projectData }) => {
   let { projectNum } = useParams();
+
+  useEffect(() => {
+    // 페이지 이동 시 스크롤을 맨 위로 조정
+    window.scrollTo(0, 0);
+  }, [projectNum]);
 
   const project = projectData.find((project) => project.text === projectNum);
 

@@ -33,20 +33,20 @@ const DetailDes: React.FC<ProjectProps> = ({ featureList, effectList, update }) 
       <DetailTitle children="프로젝트 상세소개" />
       <DetailSubTitle>핵심기능</DetailSubTitle>{" "}
       <Ul>
-        {featureList.map((item) => {
-          return <Li> {item}</Li>;
+        {featureList.map((item, index) => {
+          return <Li key={index}> {item}</Li>;
         })}
       </Ul>
       <DetailSubTitle>기대효과</DetailSubTitle>
       <Ul>
-        {effectList.map((item) => {
-          return <Li> {item}</Li>;
+        {effectList.map((item, index) => {
+          return <Li key={index}> {item}</Li>;
         })}
       </Ul>
       <DetailSubTitle>추후 업데이트 예정</DetailSubTitle>
       <Ul>
-        {update.map((item) => {
-          return <Li> {item}</Li>;
+        {update.map((item, index) => {
+          return <Li key={index}> {item}</Li>;
         })}
       </Ul>
     </DetailTitleContainer>
