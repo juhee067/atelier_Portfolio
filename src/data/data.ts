@@ -18,7 +18,7 @@ export const projectData = [
     background:
       "1년동안의 버킷리스트를 만드는 프로젝트에 참여한 적이 있습니다. 버킷리스트를 제작하면서 내가 좋아하는 도서 버킷리스트로 만들면 어떨까? 하는 생각에서 프로젝트를 기획하게 되었습니다. 사용자는 책을 읽을 때마다 느낀 감정과 생각을 기록할 수 있고, 자신의 독서 목표를 설정하고, 완료한 책을 한 눈에 보고 성취감을 느끼게 하고자 이 프로젝트를 기획했습니다.",
     isModal: false,
-    video: "/image/video/book.mov",
+    video: "/image/video/book.gif",
     projectSrc: "https://juhee067.github.io/bookbucketWeb/",
     githubSrc: "https://github.com/juhee067/bookbucketWeb",
     featureList: [
@@ -35,6 +35,38 @@ export const projectData = [
     update: [
       "사용자가 기록한 독서 데이터를 기반으로 선호하는 장르나 저자를 파악하여 다음에 읽을 도서를 추천하는 기능을 추가",
     ],
+    useStack: [
+      {
+        category: "View",
+        badges: [
+          { label: "React", logo: "react", color: "61DAFB" },
+          { label: "React Router", logo: "reactrouter", color: "CA4245" },
+          { label: "Axios", logo: "axios", color: "5A29E4" },
+        ],
+      },
+      {
+        category: "State Management",
+        badges: [{ label: "Redux", logo: "redux", color: "764ABC" }],
+      },
+      {
+        category: "CSS",
+        badges: [{ label: "Sass", logo: "sass", color: "CC6699" }],
+      },
+      {
+        category: "Code Quality",
+        badges: [
+          { label: "Prettier", logo: "prettier", color: "2C414F" },
+          { label: "ESLint", logo: "eslint", color: "4B32C3" },
+        ],
+      },
+      {
+        category: "Design Tool",
+        badges: [
+          { label: "Figma", logo: "figma", color: "F24E1E" },
+          { label: "Adobe Illustrator", logo: "adobeillustrator", color: "FF9A00" },
+        ],
+      },
+    ],
   },
   {
     id: 1,
@@ -49,7 +81,7 @@ export const projectData = [
     background:
       "주식 정보시각화를 만들어본 경험으로, 새로운 아이디어를 찾던 중 평소에 사용하는 메신저의 대화 데이터를 더 효과적으로 활용할 수 있는 방법에 대한 고민이 시작되었습니다. 일상적인 대화에서는 자주 놓치기 쉬운 패턴으로, 이를 시각적으로 표현하면 어떨까? 하는 아이디어가 떠올랐습니다. 이 아이디어에서 출발하여 '메신저 대화 분석 시각화 웹'을 기획하게 되었습니다.",
     isModal: false,
-    video: "/image/video/book.mov",
+    video: "/image/video/kakao.gif",
     projectSrc: "http://kmg-env-1.eba-332qe2dv.ap-northeast-2.elasticbeanstalk.com/",
     githubSrc: "https://github.com/KakaoMagnifyingGlass/KMG",
     featureList: [
@@ -64,6 +96,41 @@ export const projectData = [
       "개개인의 카톡 이용량을 파악하여 습관을 깨닫고, 필요에 따라 조절할 수 있습니다.",
     ],
     update: ["없음"],
+    useStack: [
+      {
+        category: "View",
+        badges: [
+          { label: "React", color: "282C34", logo: "react" },
+          { label: "TypeScript", color: "3178C6", logo: "typescript" },
+          { label: "React Router", color: "CA4245", logo: "reactrouter" },
+        ],
+      },
+      {
+        category: "State Management",
+        badges: [{ label: "Redux", color: "764ABC", logo: "redux" }],
+      },
+      {
+        category: "CSS",
+        badges: [
+          {
+            label: "Styled Components",
+            color: "DB7093",
+            logo: "styledcomponents",
+          },
+        ],
+      },
+      {
+        category: "Code Quality",
+        badges: [
+          { label: "Prettier", color: "2C414F", logo: "prettier" },
+          { label: "ESLint", color: "4B32C3", logo: "eslint" },
+        ],
+      },
+      {
+        category: "Design Tool",
+        badges: [{ label: "Figma", color: "F24E1E", logo: "figma" }],
+      },
+    ],
   },
   {
     id: 2,
@@ -78,7 +145,7 @@ export const projectData = [
     background:
       "평소, 정신적으로 고통 받고 있는 친구들이 주변에 많았습니다. 이 친구들에게 가장 좋은 치료약은 무엇일까? 생각해보다가 그들에게 가장 필요한 것은 도움이라 생각이 들어 그 친구들에게 맞는 위로의 메세지 전달해주자는 마음에 기획하게되었습니다. 졸업전시회에서 사용한 프로젝트를 리뉴얼하여 그들에게 필요한 지원을 다시 전하고자 합니다. ",
     isModal: false,
-    video: "/image/video/book.mov",
+    video: "/image/video/helpgatekeeper.gif",
     projectSrc: "https://helpgatekeeper.web.app/",
     githubSrc: "https://github.com/juhee067/suicide-prevent",
     featureList: [
@@ -94,7 +161,53 @@ export const projectData = [
       "우울증 테스트로 정신 상태를 평가해 자가 확인을 돕도록 합니다.",
       "응원 메시지와 게시판을 통해 긍정적인 에너지를 공유하고 정보를 교류하여 서로에게 힘을 주고자합니다.",
     ],
-    update: ["최적화"],
+    update: ["게시물 이미지 업로드", "최적화"],
+    useStack: [
+      {
+        category: "View",
+        badges: [
+          { label: "React", color: "282C34", logo: "react" },
+          { label: "TypeScript", color: "3178C6", logo: "typescript" },
+          { label: "React Router", color: "CA4245", logo: "reactrouter" },
+        ],
+      },
+      {
+        category: "State Management",
+        badges: [{ label: "Redux", color: "764ABC", logo: "redux" }],
+      },
+      {
+        category: "Database",
+        badges: [{ label: "Firebase", color: "FFCA28", logo: "Firebase" }],
+      },
+      {
+        category: "CSS",
+        badges: [
+          {
+            label: "Styled Components",
+            color: "DB7093",
+            logo: "styledcomponents",
+          },
+        ],
+      },
+      {
+        category: "Code Quality",
+        badges: [
+          { label: "Prettier", color: "2C414F", logo: "prettier" },
+          { label: "ESLint", color: "4B32C3", logo: "eslint" },
+        ],
+      },
+      {
+        category: "Design Tool",
+        badges: [
+          { label: "Figma", color: "F24E1E", logo: "figma" },
+          {
+            label: "Adobe Illustrator",
+            color: "FF9A00",
+            logo: "adobeillustrator",
+          },
+        ],
+      },
+    ],
   },
   {
     id: 3,
@@ -115,6 +228,28 @@ export const projectData = [
     featureList: ["/"],
     effectList: ["/"],
     update: ["없음"],
+    useStack: [
+      {
+        category: "View",
+        badges: [],
+      },
+      {
+        category: "State Management",
+        badges: [],
+      },
+      {
+        category: "CSS",
+        badges: [],
+      },
+      {
+        category: "Code Quality",
+        badges: [],
+      },
+      {
+        category: "Design Tool",
+        badges: [],
+      },
+    ],
   },
 ];
 

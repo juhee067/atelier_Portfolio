@@ -59,6 +59,7 @@ function App() {
           setIsAlert={setIsAlert}
           isIdModal={isIdModal}
           setIsIdModal={setIsIdModal}
+          projectData={projectData}
         />
         <DropBox isOpen={isOpen} />
         <IdModal isIdModal={isIdModal} />

@@ -1,4 +1,5 @@
 import React from "react";
+import { StackType } from "src/pages/ProjectDetail";
 import styled from "styled-components";
 
 const StackContainer = styled.div`
@@ -27,7 +28,11 @@ const Td = styled.td`
   }
 `;
 
-const Stack: React.FC = () => {
+type UseStackProps = {
+  useStack: StackType[];
+};
+
+const Stack: React.FC<UseStackProps> = ({ useStack }) => {
   return (
     <StackContainer>
       <Table>
@@ -38,63 +43,21 @@ const Stack: React.FC = () => {
           </tr>
         </thead>
         <tbody>
-          <tr>
-            <Td>View</Td>
-            <Td>
-              <img
-                src="https://img.shields.io/badge/react-282C34?style=for-the-badge&logo=react&logoColor=#61DAFB"
-                alt="React"
-              />
-              <img
-                src="https://img.shields.io/badge/typescript-3178C6?style=for-the-badge&logo=typescript&logoColor=white"
-                alt="TypeScript"
-              />
-              <img
-                src="https://img.shields.io/badge/reactrouter-CA4245?style=for-the-badge&logo=reactrouter&logoColor=white"
-                alt="React Router"
-              />
-            </Td>
-          </tr>
-          <tr>
-            <Td>State Management</Td>
-            <Td>
-              <img
-                src="https://img.shields.io/badge/redux-764ABC?style=for-the-badge&logo=redux&logoColor=white"
-                alt="Redux"
-              />
-            </Td>
-          </tr>
-          <tr>
-            <Td>CSS</Td>
-            <Td>
-              <img
-                src="https://img.shields.io/badge/styledcomponents-DB7093?style=for-the-badge&logo=styledcomponents&logoColor=white"
-                alt="Styled Components"
-              />
-            </Td>
-          </tr>
-          <tr>
-            <Td>Code Quality</Td>
-            <Td>
-              <img
-                src="https://img.shields.io/badge/prettier-2C414F?style=for-the-badge&logo=prettier&logoColor=white"
-                alt="Prettier"
-              />
-              <img
-                src="https://img.shields.io/badge/eslint-4B32C3?style=for-the-badge&logo=eslint&logoColor=white"
-                alt="ESLint"
-              />
-            </Td>
-          </tr>
-          <tr>
-            <Td>Design Tool</Td>
-            <Td>
-              <img
-                src="https://img.shields.io/badge/figma-F24E1E?style=for-the-badge&logo=figma&logoColor=white"
-                alt="Figma"
-              />
-            </Td>
-          </tr>
+          {useStack.map((item, index) => (
+            <tr key={index}>
+              <Td>{item.category}</Td>
+              <Td>
+                {item.badges.map((badge, badgeIndex) => (
+                  <img
+                    key={badgeIndex}
+                    // <img src="https://img.shields.io/badge/reactrouter-CA4245?style=for-the-badge&logo=reactrouter&logoColor=white">|
+                    src={`https://img.shields.io/badge/${badge.logo}-${badge.color}?style=for-the-badge&logo=${badge.logo}&logoColor=white`}
+                    alt={badge.label}
+                  />
+                ))}
+              </Td>
+            </tr>
+          ))}
         </tbody>
       </Table>
     </StackContainer>

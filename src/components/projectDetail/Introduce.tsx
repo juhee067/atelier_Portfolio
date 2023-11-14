@@ -6,6 +6,10 @@ import { FlexCenterDiv } from "src/module/styled/FlexDiv";
 
 const IntroduceContainer = styled.div``;
 
+const Img = styled.img`
+  width: 50%;
+`;
+
 const Project = styled(FlexCenterDiv)`
   border: 1px solid ${({ theme }) => theme.color.mean};
   margin-bottom: 30px;
@@ -26,9 +30,7 @@ export const Introduce: React.FC<ProjectProps> = ({ projectSrc, githubSrc, video
     <IntroduceContainer>
       <DetailTitle children="프로젝트 소개" />
       <Project>
-        <video autoPlay loop muted playsInline width="50%">
-          <source src={process.env.PUBLIC_URL + video} />
-        </video>
+        <Img src={process.env.PUBLIC_URL + video} />
       </Project>
       <MoreBtnBox>
         <MoreBtn content="프로젝트 결과물 바로가기" src={projectSrc} />

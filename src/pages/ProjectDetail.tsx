@@ -22,7 +22,19 @@ const DesBox = styled(FlexColumnDiv)`
   max-width: 1000px;
 `;
 
-type projectType = {
+type BadgeType = {
+  label?: string;
+  color?: string;
+  logo?: string;
+};
+
+export type StackType = {
+  category: string;
+  badges: BadgeType[];
+};
+
+type ProjectType = {
+  id: number;
   icon: IconType;
   color: string;
   projectNum: string;
@@ -30,19 +42,20 @@ type projectType = {
   period: string;
   stack: string;
   src: string;
-  isModal: boolean;
   des: string;
   background: string;
+  isModal: boolean;
+  video: string;
   projectSrc: string;
   githubSrc: string;
-  video: string;
   featureList: string[];
   effectList: string[];
   update: string[];
+  useStack: StackType[];
 };
 
 interface ProjectDetailProps {
-  projectData: projectType[];
+  projectData: ProjectType[];
 }
 
 export const ProjectDetail: React.FC<ProjectDetailProps> = ({ projectData }) => {
@@ -71,7 +84,7 @@ export const ProjectDetail: React.FC<ProjectDetailProps> = ({ projectData }) => 
           effectList={project.effectList}
           update={project.update}
         />
-        <UseStack />
+        <UseStack useStack={project.useStack} />
       </DesBox>
     </DesContainer>
   );
