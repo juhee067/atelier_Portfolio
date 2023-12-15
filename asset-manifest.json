@@ -1,10 +1,10 @@
 {
   "files": {
-    "main.js": "/atelier_Portfolio/static/js/main.6a7f6378.js",
+    "main.js": "/atelier_Portfolio/static/js/main.d31ba211.js",
     "index.html": "/atelier_Portfolio/index.html",
-    "main.6a7f6378.js.map": "/atelier_Portfolio/static/js/main.6a7f6378.js.map"
+    "main.d31ba211.js.map": "/atelier_Portfolio/static/js/main.d31ba211.js.map"
   },
   "entrypoints": [
-    "static/js/main.6a7f6378.js"
+    "static/js/main.d31ba211.js"
   ]
 }
